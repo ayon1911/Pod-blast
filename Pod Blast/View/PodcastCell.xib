@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" rowHeight="177" id="6hv-Mm-Lsv" customClass="PodcastCell" customModule="Pod_Blast" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="526" height="177"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6hv-Mm-Lsv" id="Wxi-8O-56Y">
+                <rect key="frame" x="0.0" y="0.0" width="526" height="176.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appicon" translatesAutoresizingMaskIntoConstraints="NO" id="71g-sP-Iyr">
+                        <rect key="frame" x="20" y="19" width="100" height="100"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="100" id="Kfy-Vg-I7L"/>
+                            <constraint firstAttribute="width" constant="100" id="daN-ex-5hA"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rUn-4B-rSP">
+                        <rect key="frame" x="128" y="32" width="250" height="75"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="ztc-Au-UTz">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="VOx-H3-4pg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7m2-lK-3ZH">
+                                <rect key="frame" x="0.0" y="30" width="250" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="s01-A0-aDM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episodes Count" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Ywh-R0-XQb">
+                                <rect key="frame" x="0.0" y="57" width="250" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="RAk-59-GhY"/>
+                                    <constraint firstAttribute="width" constant="250" id="u0U-kF-r4T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
+                                <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="7m2-lK-3ZH" firstAttribute="leading" secondItem="rUn-4B-rSP" secondAttribute="leading" id="ECB-Ud-19b"/>
+                            <constraint firstItem="Ywh-R0-XQb" firstAttribute="leading" secondItem="rUn-4B-rSP" secondAttribute="leading" id="G52-RW-VaE"/>
+                            <constraint firstAttribute="trailing" secondItem="Ywh-R0-XQb" secondAttribute="trailing" id="IVe-f5-5zn"/>
+                            <constraint firstAttribute="trailing" secondItem="ztc-Au-UTz" secondAttribute="trailing" id="IvS-cA-RzU"/>
+                            <constraint firstAttribute="trailing" secondItem="7m2-lK-3ZH" secondAttribute="trailing" id="JIj-6L-R0g"/>
+                            <constraint firstItem="ztc-Au-UTz" firstAttribute="leading" secondItem="rUn-4B-rSP" secondAttribute="leading" id="mIM-90-ere"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="rUn-4B-rSP" firstAttribute="centerY" secondItem="71g-sP-Iyr" secondAttribute="centerY" id="CQf-om-L1t"/>
+                    <constraint firstItem="rUn-4B-rSP" firstAttribute="leading" secondItem="71g-sP-Iyr" secondAttribute="trailing" constant="8" id="D35-As-qbx"/>
+                    <constraint firstItem="71g-sP-Iyr" firstAttribute="top" secondItem="Wxi-8O-56Y" secondAttribute="topMargin" constant="8" id="WWf-Zj-m1h"/>
+                    <constraint firstItem="71g-sP-Iyr" firstAttribute="leading" secondItem="Wxi-8O-56Y" secondAttribute="leadingMargin" id="cw4-e4-oOD"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="artistLbl" destination="7m2-lK-3ZH" id="pHJ-nG-P7N"/>
+                <outlet property="episodeLbl" destination="Ywh-R0-XQb" id="0Cx-2O-L5B"/>
+                <outlet property="podcastImage" destination="71g-sP-Iyr" id="qpW-zG-mhb"/>
+                <outlet property="trackLbl" destination="ztc-Au-UTz" id="s4J-cN-WDv"/>
+            </connections>
+            <point key="canvasLocation" x="-263" y="-75.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="appicon" width="60" height="60"/>
+    </resources>
+</document>
