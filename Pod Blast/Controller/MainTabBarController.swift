@@ -28,7 +28,7 @@ class MainTabBarController: UITabBarController {
         setupOfPlayerDetailsView()
 //        perform(#selector(maximizePlayerDetailsView), with: nil, afterDelay: 1)
     }
-    
+        
     @objc func minimizePlayerDetailsView() {
         //animation
         maximizedTopAnchorConstraint.isActive = false
@@ -95,8 +95,8 @@ class MainTabBarController: UITabBarController {
         let layout = UICollectionViewFlowLayout()
         let favoritesVC = FavoritesVC(collectionViewLayout: layout)
         viewControllers = [
-            generateNavigationController(with: favoritesVC, title: "Favorite", image: #imageLiteral(resourceName: "favorites")),
             generateNavigationController(with: PodcastsSearchVC(), title: "Search", image: #imageLiteral(resourceName: "search")),
+            generateNavigationController(with: favoritesVC, title: "Favorite", image: #imageLiteral(resourceName: "favorites")),
             generateNavigationController(with: ViewController(), title: "Download", image: #imageLiteral(resourceName: "downloads"))
         ]
     }
