@@ -6,7 +6,11 @@
 //  Copyright © 2018 DocDevs. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-//let CELL_ID_PODCAST_SEARCH = "cellIdForPodcastSearchVC"
+let BASE_URL = "https://itunes.apple.com/search"
 
+let PODCAST_CELL_ID = "podCastCellId"
+let EPISODE_CELL_ID = "episodeCellId"
+let FAVORITE_CELL_ID = "favoriteCellId"
+let DOWNCELL_ID = "downloadCellId"

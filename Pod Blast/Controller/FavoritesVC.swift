@@ -12,7 +12,6 @@ class FavoritesVC: UICollectionViewController {
     
     //MARK:- Variables
     var podcasts = UserDefaults.standard.savedPodcast()
-    fileprivate let cellID = "favoriteCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,7 @@ class FavoritesVC: UICollectionViewController {
     //MARK:- Setup functions
     fileprivate func setupCollectionView() {
         collectionView?.backgroundColor = #colorLiteral(red: 0.5176470588, green: 0.2156862745, blue: 0.4901960784, alpha: 1)
-        collectionView?.register(FavoritePodcastCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView?.register(FavoritePodcastCell.self, forCellWithReuseIdentifier: FAVORITE_CELL_ID)
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handlelongPress))
         collectionView?.addGestureRecognizer(longPress)
     }
@@ -63,7 +62,7 @@ extension FavoritesVC {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as? FavoritePodcastCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FAVORITE_CELL_ID, for: indexPath) as? FavoritePodcastCell else { return UICollectionViewCell() }
         
         cell.podcast = self.podcasts[indexPath.item]
 

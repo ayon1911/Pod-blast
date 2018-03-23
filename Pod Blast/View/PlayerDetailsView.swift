@@ -27,6 +27,7 @@ class PlayerDetailsView: UIView {
             setupAudioSession()
             playEpiosde()
             setupNowPlayingInfo()
+//            playPauseBtn.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             
             guard let url = URL(string: episode.episodeImageUrl ?? "") else { return }
             episodeImageView.sd_setImage(with: url, completed: nil)
@@ -274,6 +275,7 @@ class PlayerDetailsView: UIView {
         UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             
             self.episodeImageView.transform = .identity
+            self.playPauseBtn.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
             
         }, completion: nil)
     }

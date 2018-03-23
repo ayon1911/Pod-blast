@@ -10,10 +10,7 @@ import UIKit
 import FeedKit
 
 class EpisodesVC: UITableViewController {
-    //MARK:- Variables
-    fileprivate let CELL_ID = "cellID"
-    
-    
+    //MARK:- Variable
     var podcast: Podcast? {
         didSet {
             fetchEpisodes()
@@ -42,7 +39,7 @@ class EpisodesVC: UITableViewController {
     //MARK:- setupView
     fileprivate func setuptableView() {
         let nidFile = UINib(nibName: "EpisodeCell", bundle: nil)
-        tableView.register(nidFile, forCellReuseIdentifier: CELL_ID)
+        tableView.register(nidFile, forCellReuseIdentifier: EPISODE_CELL_ID)
         tableView.tableFooterView = UIView()
     }
     
@@ -50,11 +47,10 @@ class EpisodesVC: UITableViewController {
         let savedPodcast = UserDefaults.standard.savedPodcast()
         //returns nil if the predicate doesnt match the array.
         if savedPodcast.index(where: { $0.trackName == self.podcast?.trackName && $0.artistName == self.podcast?.artistName}) != nil {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "favorite"), style: .plain, target: nil, action: nil)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "fav"), style: .plain, target: nil, action: nil)
         } else {
             navigationItem.rightBarButtonItems = [
                 UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(handleSaveFavorite))
-//                UIBarButtonItem(title: "Fetched", style: .plain, target: self, action: #selector(handleFetchSavedPodcast))
             ]
         }
     }
@@ -71,7 +67,7 @@ class EpisodesVC: UITableViewController {
         UserDefaults.standard.set(data, forKey: UserDefaults.favoritedPodcastKey)
         
         showBadgeHighLight()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "favorite"), style: .plain, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "fav"), style: .plain, target: nil, action: nil)
     }
     
     @objc fileprivate func handleFetchSavedPodcast() {
@@ -94,7 +90,7 @@ extension EpisodesVC {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! EpisodeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: EPISODE_CELL_ID, for: indexPath) as! EpisodeCell
         let episode = episodes[indexPath.row]
         cell.episode = episode
         return cell
@@ -105,8 +101,6 @@ extension EpisodesVC {
 
         let mainTabbarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController
         mainTabbarController?.maximizePlayerDetailsView(episode: episode, playlistEpisodes: self.episodes)
-        
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -122,5 +116,14 @@ extension EpisodesVC {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return episodes.isEmpty ? view.center.y : 0
+    }
+    //MARK:- download episodes
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let downloadAction = UITableViewRowAction(style: .normal, title: "Download") { (_, _) in
+            let episode = self.episodes[indexPath.row]
+            UserDefaults.standard.downloadEpisode(episode: episode)
+            DownloadService.shared.downloadEipsodeToLocal(episode: episode)
+        }
+        return [downloadAction]
     }
 }

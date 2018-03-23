@@ -16,10 +16,9 @@ class SearchPodcast {
     //fetchPodcast
     func fetchPodcast(searchText: String, completionHandler: @escaping ([Podcast]) -> ()) {
         
-        let url = "https://itunes.apple.com/search"
         let parameters = ["term": searchText, "media": "podcast"]
         
-        Alamofire.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { (responseData) in
+        Alamofire.request(BASE_URL, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { (responseData) in
             
             if let err = responseData.error {
                 debugPrint(err as Any)

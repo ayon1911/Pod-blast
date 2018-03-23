@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 extension UITabBar {
-    open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = 55
-        return sizeThatFits
-    }
+//    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+//        var sizeThatFits = super.sizeThatFits(size)
+//        sizeThatFits.height = 65
+//        return sizeThatFits
+//    }
 }

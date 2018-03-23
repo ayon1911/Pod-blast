@@ -11,8 +11,6 @@ import Alamofire
 
 class PodcastsSearchVC: UITableViewController {
     
-    fileprivate let CELL_ID = "cellID"
-    
     var podcasts = [Podcast]()
     //delaying variable for the search podcast method
     var timer: Timer?
@@ -41,10 +39,10 @@ class PodcastsSearchVC: UITableViewController {
     
     fileprivate func setupTableView() {
         //Register a cell
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CELL_ID)
+//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: PODCAST_CELL_ID)
         tableView.backgroundColor = #colorLiteral(red: 0.5176470588, green: 0.2156862745, blue: 0.4901960784, alpha: 1)
         let nib = UINib(nibName: "PodcastCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: CELL_ID)
+        tableView.register(nib, forCellReuseIdentifier: PODCAST_CELL_ID)
         tableView.tableFooterView = UIView()
     }
 
@@ -55,7 +53,7 @@ class PodcastsSearchVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! PodcastCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PODCAST_CELL_ID, for: indexPath) as! PodcastCell
         
         let podcast = self.podcasts[indexPath.row]
         cell.podcast = podcast

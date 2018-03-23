@@ -25,7 +25,9 @@ class EpisodeCell: UITableViewCell {
     
     var episode: Episode! {
         didSet {
-            descriptionLbl.text = episode.description
+            
+            descriptionLbl.text? = episode.description
+
             podcastTitleLbl.text = episode.title
             pubDateLbl.text = dateFormatter(withDate: episode.pubDate)
             
