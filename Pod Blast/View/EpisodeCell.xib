@@ -56,13 +56,22 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rcz-R0-uyT">
+                        <rect key="frame" x="33" y="64.5" width="74.5" height="39.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="28"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Rcz-R0-uyT" firstAttribute="centerY" secondItem="Ws3-qR-WAM" secondAttribute="centerY" id="6uy-OQ-7X3"/>
                     <constraint firstItem="Ws3-qR-WAM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7iI-Wb-m1T"/>
                     <constraint firstItem="kF8-QY-giN" firstAttribute="leading" secondItem="Ws3-qR-WAM" secondAttribute="trailing" constant="15" id="S1r-sI-3YO"/>
                     <constraint firstItem="kF8-QY-giN" firstAttribute="centerY" secondItem="Ws3-qR-WAM" secondAttribute="centerY" id="cqy-pf-yG2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="kF8-QY-giN" secondAttribute="trailing" id="gG5-xl-EhQ"/>
                     <constraint firstItem="Ws3-qR-WAM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="noy-OO-eWD"/>
+                    <constraint firstItem="Rcz-R0-uyT" firstAttribute="centerX" secondItem="Ws3-qR-WAM" secondAttribute="centerX" id="xn9-hw-OYb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -70,6 +79,7 @@
                 <outlet property="descriptionLbl" destination="lnB-Lr-mlk" id="iDk-KX-waU"/>
                 <outlet property="episodeImageView" destination="Ws3-qR-WAM" id="KKu-qn-ogi"/>
                 <outlet property="podcastTitleLbl" destination="1bC-eu-EW2" id="Mkc-6C-3J0"/>
+                <outlet property="progressLbl" destination="Rcz-R0-uyT" id="JsE-YP-4iR"/>
                 <outlet property="pubDateLbl" destination="3QR-s1-jIM" id="pMr-9E-mZW"/>
             </connections>
             <point key="canvasLocation" x="98.5" y="93.5"/>

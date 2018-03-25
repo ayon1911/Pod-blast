@@ -10,6 +10,7 @@ import UIKit
 
 class EpisodeCell: UITableViewCell {
 
+    @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var episodeImageView: UIImageView!
     @IBOutlet weak var pubDateLbl: UILabel!
     @IBOutlet weak var podcastTitleLbl: UILabel! {

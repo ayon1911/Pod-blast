@@ -331,9 +331,26 @@ class PlayerDetailsView: UIView {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
-    func playEpiosde() {
-        guard let url = URL(string: episode.streamUrl) else { return }
+    fileprivate func playEpiosde() {
+        if episode.fileUrl != nil {
+            playEpisodeFromFileUrl()
+        } else {
+            guard let url = URL(string: episode.streamUrl) else { return }
+            let playerItem = AVPlayerItem(url: url)
+            player.replaceCurrentItem(with: playerItem)
+            player.play()
+        }
+        
+    }
+    
+    fileprivate func playEpisodeFromFileUrl() {
+        guard let fileName = URL(string: episode.fileUrl ?? "")?.lastPathComponent else { return }
+        
+        guard let documentUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let trueFileUrl = documentUrl.appendingPathComponent(fileName)
+        guard let url = URL(string: trueFileUrl.absoluteString) else { return }
         let playerItem = AVPlayerItem(url: url)
+        print("Local url is : \(url)")
         player.replaceCurrentItem(with: playerItem)
         player.play()
     }
